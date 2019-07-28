@@ -8,6 +8,20 @@
   z-index: 2;
 }
 
+
+.search-bar {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+  padding-top: 14rpx;
+  overflow: hidden;
+}
+
+.search-bar .am-search-input {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .logo {
   width: 105rpx;
   height: 117rpx;
@@ -169,4 +183,53 @@
   display: flex;
   width: 100%;
   transition-duration: 500ms;
+}
+.btn-area{
+  width: 50%;
+  margin-top: 10%;
+}
+
+.connect-button{
+  display: block;
+  height: 48rpx;
+  line-height: 48rpx;
+  padding: 0 24rpx;
+  border: 2rpx solid rgb(50,150,250);
+  color: rgb(50,150,250);
+  margin: 1rpx;
+  font-size: 24rpx;
+  margin-left: 150rpx;
+  border-radius: 6rpx;
+}
+
+.history {
+  position: relative;
+  padding-left: 2px;
+  padding-bottom: 1px;
+  color: #333;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.history .clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40rpx;
+  width: 40rpx;
+  background-image: url('/image/clear.png');
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.history-list {
+  margin-top: 10px;
+}
+
+.history-container{
+  border-bottom: 1rpx solid #F5F5F5; 
+  margin-bottom: 16px;
+  margin-top: 50px
 }
