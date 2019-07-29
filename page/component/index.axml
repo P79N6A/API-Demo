@@ -1,13 +1,17 @@
 <view class="banner">
   <view class="logo" style="opacity: {{titleOpacity}}"><image src="/image/component_logo.png" mode="aspectFit" /></view>
-  <view class="title" style="opacity: {{titleOpacity}}">IPv6查询</view>
+  <view class="title" style="opacity: {{titleOpacity}}">网络IP查询</view>
   <view class="fake-searchbar">
-  <input class="fake-placeholder" onInput="bindKeyInput" placeholder="请输入ip地址">{{ipAddress}}</input> 
+  <input class="fake-placeholder" 
+        onInput="bindKeyInput" 
+        placeholder="请输入ip地址" 
+        value="{{ipAddress}}"
+        ></input> 
   <view class = "connect-button" onTap="connectTest">查询</view>
   </view>
 </view>
 <view a:if="{{ history.length > 0 }}" class = "history-container">
-        <view class="history">历史<view class="clear" onTap="clear"></view></view>
+        <view class="history">历史记录<view class="clear" onTap="clear"></view></view>
         <block-list listData="{{history}}" class="history-list" onItemTap="onItemTap" />
 </view>
 </view>

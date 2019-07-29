@@ -61,22 +61,31 @@ Page({
   },
   connectTest() {
     console.log(this.data.ipAddress)
-    this.addToHistory(this.data.ipAddress)
-    dd.confirm({
-    title: '温馨提示',
-    content: '查询IP: '+this.data.ipAddress,
-    confirmButtonText: '马上查询',
-    cancelButtonText: '暂不需要',
-
-    success: (result) => {
+    
+    if(this.data.ipAddress === ''){
       dd.alert({
-        title: `${result.confirm}`,
-      });
-      this.setData({
-        ipAddress: '',
-      });
-    },
-    })
+        title: '温馨提示',
+        content: '请输入IP',
+        buttonText: '好的',
+      })
+    } else {
+      this.addToHistory(this.data.ipAddress)
+      dd.confirm({
+        title: '温馨提示',
+        content: '查询IP: '+this.data.ipAddress,
+        confirmButtonText: '马上查询',
+        cancelButtonText: '暂不需要',
+        success: (result) => {
+          console.log(this)
+          dd.alert({
+            title: `${result.confirm}`,
+          });
+          this.setData({
+            ipAddress: "",
+          });
+        },
+      })
+    }
   },
   onTabBarTap(e) {
     const { index } = e.target.dataset
@@ -100,11 +109,16 @@ Page({
     });
   },
   clear() {
-    my.confirm({
+    dd.confirm({
       content: '确定删除相关历史？',
       success: (res) => {
         if (res.confirm) {
-          dd.removeStorage();
+          dd.removeStorage({
+            key: 'searchHistory',
+            success: function(){
+              dd.confirm({content: '删除成功'});
+              }
+          });
           this.setData({
             history: [],
           });
